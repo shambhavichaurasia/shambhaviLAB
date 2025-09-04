@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Food Cart</title>
+    <style>
+        body {
+            font-family: Arial;
+            background-color: #f8f8f8;
+            text-align: center;
+        }
+        .cart{
+            margin-top: 20px;
+        }
+        .item {
+            background-color: white;
+            width: 250px;
+            display: inline-block; /* THIS makes them side by side */
+            margin: 10px;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 10px;
+            vertical-align: top;
+        }
+        img {
+            width: 100%;
+            border-radius: 10px;
+        }
+        .price {
+            font-weight: bold;
+            margin: 5px 0;
+        }
+        button {
+            background-color: red;
+            color: white;
+            padding: 8px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: darkred;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Food Cart</h1>
+
+    <div class="item">
+        <img src="https://hips.hearstapps.com/hmg-prod/images/classic-cheese-pizza-recipe-2-64429a0cb408b.jpg?crop=0.6666666666666667xw:1xh;center,top&resize=1200:*" alt="Pizza">
+        <h3>Pizza</h3>
+        <p class="price">₹250</p>
+        <button>Order Now</button>
+    </div>
+
+    <div class="item">
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSfg9B6xzfanVTpi-C4uuDtjNfBxtZA9KA57w&s" alt="Burger">
+        <h3>Burger</h3>
+        <p class="price">₹120</p>
+        <button>Order Now</button>
+    </div>
+
+    <div class="item">
+        <img src="https://images.themodernproper.com/production/posts/2022/Homemade-French-Fries_8.jpg?w=1200&h=1200&q=60&fm=jpg&fit=crop&dm=1662474181&s=15046582e76b761a200998df2dcad0fd" alt="Fries">
+        <h3>Fries</h3>
+        <p class="price">₹80</p>
+        <button>Order Now</button>
+    </div>
+
+</body>
+</html>
