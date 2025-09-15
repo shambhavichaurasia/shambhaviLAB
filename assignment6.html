@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Counter App</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f4f4f4;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+    }
+    .container {
+      text-align: center;
+      background: white;
+      padding: 30px;
+      border-radius: 15px;
+      box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.2);
+      position: relative;
+    }
+    .logo {
+      position: absolute;
+      top: 15px;
+      left: 15px;
+      width: 50px;
+    }
+    h1 {
+      font-size: 48px;
+      margin: 20px 0;
+    }
+    button {
+      padding: 10px 20px;
+      margin: 10px;
+      font-size: 18px;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+    .increment {
+      background: #4caf50;
+      color: white;
+    }
+    .increment:hover {
+      background: #45a049;
+    }
+    .decrement {
+      background: #f44336;
+      color: white;
+    }
+    .decrement:hover {
+      background: #da190b;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/a/a7/React-icon.svg" class="logo" alt="Logo">
+    <h1 id="counter">0</h1>
+    <button class="increment" onclick="decrement()">-</button>
+    <button class="decrement" onclick="increment()">+</button>
+  </div>
+
+  <script>
+    let count = 0;
+    const counterDisplay = document.getElementById("counter");
+
+    function increment() {
+      if (count ==10) {
+        alert("counter can not be more than 10");
+        counterDisplay.innerText = count;
+      }
+      else{
+        count++;
+        counterDisplay.innerText = count;
+      }
+    }
+
+    function decrement() {
+      if (count == 0) {
+        alert("count can't be less than zero");
+        counterDisplay.innerText = count;
+      }
+      else{
+        count--;
+        counterDisplay.innerText = count;
+      }
+    }
+  </script>
+</body>
+</html>
