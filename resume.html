@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Resume Generator</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      display: flex;
+      gap: 40px;
+      padding: 20px;
+    }
+    .form-box {
+      width: 250px;
+    }
+    .resume-box {
+      border: 2px solid black;
+      padding: 20px;
+      width: 400px;
+    }
+    .resume-box img {
+      width: 100px;
+      height: 100px;
+      border-radius: 50%;
+      object-fit: cover;
+      display: block;
+      margin-bottom: 10px;
+    }
+    h1 {
+      margin: 5px 0;
+    }
+    ul {
+      margin: 5px 0;
+    }
+  </style>
+</head>
+<body>
+  <!-- Form Section -->
+  <div class="form-box">
+    <h2>Enter Details</h2>
+    <label>Name:</label><br>
+    <input type="text" id="name"><br><br>
+
+    <label>Class:</label><br>
+    <input type="text" id="class"><br><br>
+
+    <label>Skills (comma separated):</label><br>
+    <input type="text" id="skills"><br><br>
+
+    <label>Address:</label><br>
+    <input type="text" id="address"><br><br>
+
+    <label>Upload Image:</label><br>
+    <input type="file" id="image" accept="image/*"><br><br>
+
+    <button onclick="generateResume()">Generate Resume</button>
+  </div>
+
+  <!-- Resume Output -->
+  <div class="resume-box" id="resume">
+    <img id="resumeImage" src="" alt="Your Image" style="display:none;">
+    <h1 id="resumeName">Your Name</h1>
+    <h3>Education</h3>
+    <p id="resumeClass">B.Tech</p>
+    <h3>Skills</h3>
+    <ul id="resumeSkills"></ul>
+    <h3>Address</h3>
+    <p id="resumeAddress"></p>
+  </div>
+
+  <script>
+    function generateResume() {
+      // Get values
+      const name = document.getElementById("name").value;
+      const cls = document.getElementById("class").value;
+      const skills = document.getElementById("skills").value.split(",");
+      const address = document.getElementById("address").value;
+      const image = document.getElementById("image").files[0];
+
+      // Update resume
+      document.getElementById("resumeName").innerText = name;
+      document.getElementById("resumeClass").innerText = cls;
+      document.getElementById("resumeAddress").innerText = address;
+
+      // Show skills as list
+      const skillList = document.getElementById("resumeSkills");
+      skillList.innerHTML = "";
+      skills.forEach(skill => {
+        if (skill.trim() !== "") {
+          const li = document.createElement("li");
+          li.textContent = skill.trim();
+          skillList.appendChild(li);
+        }
+      });
+
+      // Show image
+      if (image) {
+        const reader = new FileReader();
+        reader.onload = function(e) {
+          const img = document.getElementById("resumeImage");
+          img.src = e.target.result;
+          img.style.display = "block";
+        }
+        reader.readAsDataURL(image);
+      }
+    }
+  </script>
+</body>
+</html>

@@ -1,15 +1,44 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+  <meta charset="UTF-8">
+  <title>Students by Branch</title>
 </head>
 <body>
-    <p id="adi"></p>
-    <script>
-        const car=["car1","car2","car3"]
-        document.getElementById("adi").innerHTML=car;
-    </script>
+  <script>
+    const students = [
+      { firstname: "shambhavi", lastname: "Chaurasia", branch: "CE", AGE: 20 },
+      { firstname: "vedanshi", lastname: "Panwar", branch: "CE", AGE: 22 },
+      { firstname: "navya", lastname: "Singh", branch: "ECE", AGE: 21 },
+      { firstname: "divyanshika", lastname: "singh", branch: "CSE", AGE: 19 },
+      { firstname: "bulbul", lastname: "chaudhary", branch: "CSE", AGE: 23 }
+    ];
+
+    // Group students by branch
+    const groups = {};
+    students.forEach(s => {
+      if (!groups[s.branch]) {
+        groups[s.branch] = [];
+      }
+      groups[s.branch].push(s);
+    });
+
+    // Create box for each branch
+    for (let branch in groups) {
+      const box = document.createElement('div');
+      box.style.border = "1px solid black";
+      box.style.padding = "10px";
+      box.style.margin = "10px";
+      box.style.display = "inline-block";
+
+      // ✅ Use backticks for template literals
+      box.innerHTML = `<h3>Branch: ${branch}</h3>`;
+      groups[branch].forEach((s, i) => {
+        box.innerHTML += `<p>Student ${i+1}: ${s.firstname} ${s.lastname}, Age: ${s.AGE}</p>`;
+      });
+
+      document.body.appendChild(box);
+    }
+  </script>
 </body>
 </html>
