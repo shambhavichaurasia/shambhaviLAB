@@ -71,19 +71,16 @@
 
   <script>
     function generateResume() {
-      // Get values
       const name = document.getElementById("name").value;
       const cls = document.getElementById("class").value;
       const skills = document.getElementById("skills").value.split(",");
       const address = document.getElementById("address").value;
       const image = document.getElementById("image").files[0];
 
-      // Update resume
       document.getElementById("resumeName").innerText = name;
       document.getElementById("resumeClass").innerText = cls;
       document.getElementById("resumeAddress").innerText = address;
 
-      // Show skills as list
       const skillList = document.getElementById("resumeSkills");
       skillList.innerHTML = "";
       skills.forEach(skill => {
@@ -93,8 +90,6 @@
           skillList.appendChild(li);
         }
       });
-
-      // Show image
       if (image) {
         const reader = new FileReader();
         reader.onload = function(e) {
